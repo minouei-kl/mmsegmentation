@@ -22,7 +22,7 @@ model = dict(
         c1_in_channels=256,
         c1_channels=48,
         dropout_ratio=0.1,
-        num_classes=5,
+        num_classes=6,
         norm_cfg=dict(type='SyncBN', requires_grad=True),
         align_corners=False,
         loss_decode=dict(
@@ -35,7 +35,7 @@ model = dict(
         num_convs=1,
         concat_input=False,
         dropout_ratio=0.1,
-        num_classes=5,
+        num_classes=6,
         norm_cfg=dict(type='SyncBN', requires_grad=True),
         align_corners=False,
         loss_decode=dict(
@@ -108,5 +108,5 @@ lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
 runner = dict(type='IterBasedRunner', max_iters=80000)
 checkpoint_config = dict(by_epoch=False, interval=8000)
 evaluation = dict(interval=8000, metric='mIoU')
-work_dir = '/netscratch/minouei/report/work_dirs/deeplabv3plus_r50-d8_512x512_80k_ade20k'
+work_dir = '/netscratch/minouei/report/work_dirs/deeplabv3plus_r50-d8_704_b_80k_publay'
 gpu_ids = range(0, 1)
