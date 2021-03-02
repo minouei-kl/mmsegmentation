@@ -13,7 +13,7 @@ class ADE20KDataset(CustomDataset):
     """
     CLASSES = ('background','text', 'title', 'list', 'table', 'figure')
 
-    PALETTE = [[250, 250, 250],[120, 120, 120], [180, 20, 120], [6, 230, 230], [80, 50, 50],
+    PALETTE = [[250, 250, 250],[120, 120, 120], [180, 20, 120], [6, 230, 230], [80, 150, 50],
                [4, 200, 3]]
 
     def __init__(self, **kwargs):
