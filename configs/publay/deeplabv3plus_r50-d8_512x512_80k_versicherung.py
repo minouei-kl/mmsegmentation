@@ -74,36 +74,36 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=2,
+    samples_per_gpu=4,
     workers_per_gpu=8,
     train=dict(
         type='DRIVEDataset',
-        img_dir='/netscratch/minouei/versicherung/version1/images/train',
-        ann_dir='/netscratch/minouei/versicherung/version1/annotations/train',
+        img_dir='/netscratch/minouei/versicherung/version2/images/train',
+        ann_dir='/netscratch/minouei/versicherung/version2/annotations/train',
         pipeline=train_pipeline),
     val=dict(
         type='DRIVEDataset',
-        img_dir='/netscratch/minouei/versicherung/version1/images/val',
-        ann_dir='/netscratch/minouei/versicherung/version1/annotations/val',
+        img_dir='/netscratch/minouei/versicherung/version2/images/val',
+        ann_dir='/netscratch/minouei/versicherung/version2/annotations/val',
         pipeline=test_pipeline),
     test=dict(
         type='DRIVEDataset',
-        img_dir='/netscratch/minouei/versicherung/version1/images/test',
-        ann_dir='/netscratch/minouei/versicherung/version1/annotations/test',
+        img_dir='/netscratch/minouei/versicherung/version2/images/val',
+        ann_dir='/netscratch/minouei/versicherung/version2/annotations/val',
         pipeline=test_pipeline))
 log_config = dict(
     interval=50, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 load_from = None
-resume_from = None
+resume_from = '/netscratch/minouei/versicherung/work_dirs/deeplabv3plus_r50-d8_704_b_80k_versicherung/iter_8000.pth'
 workflow = [('train', 1)]
 cudnn_benchmark = True
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
 optimizer_config = dict()
 lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
 runner = dict(type='IterBasedRunner', max_iters=80000)
-checkpoint_config = dict(by_epoch=False, interval=2000)
+checkpoint_config = dict(by_epoch=False, interval=4000)
 evaluation = dict(interval=8000, metric='mIoU')
-work_dir = '/netscratch/minouei/versicherung/work_dirs/deeplabv3plus_r50-d8_704_b_80k_versicherung'
+work_dir = '/netscratch/minouei/versicherung/work_dirs/deeplabv3plus_r50-d8_704_b_80k_versicherung2'
 gpu_ids = range(0, 1)
