@@ -95,8 +95,8 @@ log_config = dict(
     interval=50, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-load_from = None
-resume_from = '/netscratch/minouei/versicherung/work_dirs/deeplabv3plus_r50-d8_704_b_80k_versicherung/iter_8000.pth'
+resume_from= None
+load_from  = '/netscratch/minouei/versicherung/work_dirs/deeplabv3plus_r50-d8_704_b_80k_versicherung/iter_8000.pth'
 workflow = [('train', 1)]
 cudnn_benchmark = True
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
