@@ -96,7 +96,7 @@ log_config = dict(
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 resume_from= None
-load_from  = '/netscratch/minouei/versicherung/work_dirs/deeplabv3plus_r50-d8_704_b_80k_versicherung/iter_8000.pth'
+load_from  = '/netscratch/minouei/versicherung/work_dirs/deeplabv3plus_r50-d8_704_b_80k_versicherung2/iter_8000.pth'
 workflow = [('train', 1)]
 cudnn_benchmark = True
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
@@ -104,6 +104,6 @@ optimizer_config = dict()
 lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
 runner = dict(type='IterBasedRunner', max_iters=80000)
 checkpoint_config = dict(by_epoch=False, interval=4000)
-evaluation = dict(interval=8000, metric='mIoU')
-work_dir = '/netscratch/minouei/versicherung/work_dirs/deeplabv3plus_r50-d8_704_b_80k_versicherung2'
+evaluation = dict(interval=4000, metric='mIoU')
+work_dir = '/netscratch/minouei/versicherung/work_dirs/deeplabv3plus_r50-d8_704_b_80k_versicherung3'
 gpu_ids = range(0, 1)
