@@ -13,7 +13,7 @@ def main():
         '--device', default='cuda:0', help='Device used for inference')
     parser.add_argument(
         '--palette',
-        default='DRIVE',
+        default='drive',
         help='Color palette used for segmentation map')
     args = parser.parse_args()
 
