@@ -2,7 +2,7 @@ from argparse import ArgumentParser
 
 from mmseg.apis import inference_segmentor, init_segmentor, show_result_pyplot
 from mmseg.core.evaluation import get_palette
-
+import cv2
 
 def main():
     parser = ArgumentParser()
@@ -13,7 +13,7 @@ def main():
         '--device', default='cuda:0', help='Device used for inference')
     parser.add_argument(
         '--palette',
-        default='cityscapes',
+        default='DRIVE',
         help='Color palette used for segmentation map')
     args = parser.parse_args()
 
@@ -22,7 +22,9 @@ def main():
     # test a single image
     result = inference_segmentor(model, args.img)
     # show the results
-    show_result_pyplot(model, args.img, result, get_palette(args.palette))
+    img = model.show_result(args.img, result,  show=False)
+    cv2.imwrite('out.jpg',img)
+    # show_result_pyplot(model, args.img, result)
 
 
 if __name__ == '__main__':
