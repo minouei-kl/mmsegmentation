@@ -24,7 +24,7 @@ def main():
     # show the results
     img = model.show_result(args.img, result,  show=False)
     cv2.imwrite('out.jpg',img)
-    # show_result_pyplot(model, args.img, result)
+    show_result_pyplot(model, args.img, result)
 
 
 if __name__ == '__main__':
