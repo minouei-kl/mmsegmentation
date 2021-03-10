@@ -15,11 +15,11 @@ class DRIVEDataset(CustomDataset):
     """
 
     CLASSES = ('background',"headerLogo", "twoColTabel", "recieverAddress", "text", "senderAddress", "ortDatum", "companyInfo",
-    "fullTableTyp1", "fullTableTyp2", "copyLogo", "footerLogo","footerText" ,  "signatureImage")
+    "fullTableTyp1", "fullTableTyp2", "copyLogo", "footerLogo","footerText" ,  "signatureImage", "fullTableTyp3")
 
     PALETTE = [[250, 250, 250],[120, 120, 120], [180, 20, 120], [6, 230, 230], [80, 150, 50],
     [128, 64, 128], [244, 35, 232], [70, 70, 70], [102, 102, 156],
-    [6, 51, 255], [235, 12, 255], [160, 150, 20], [0, 163, 255], [119, 11, 32]]
+    [6, 51, 255], [235, 12, 255], [160, 150, 20], [0, 163, 255], [119, 11, 32] , [110, 11, 255]]
 
     def __init__(self, **kwargs):
         super(DRIVEDataset, self).__init__(
