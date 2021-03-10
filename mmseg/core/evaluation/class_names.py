@@ -51,6 +51,14 @@ def voc_classes():
     ]
 
 
+def drive_classes():
+    """Pascal VOC class names for external use."""
+    return [
+        'background',"headerLogo", "twoColTabel", "recieverAddress", "text", "senderAddress", "ortDatum", "companyInfo",
+    "fullTableTyp1", "fullTableTyp2", "copyLogo", "footerLogo","footerText" ,  "signatureImage", "fullTableTyp3"
+    ]
+
+
 def cityscapes_palette():
     """Cityscapes palette for external use."""
     return [[128, 64, 128], [244, 35, 232], [70, 70, 70], [102, 102, 156],
@@ -110,11 +118,18 @@ def voc_palette():
             [192, 0, 128], [64, 128, 128], [192, 128, 128], [0, 64, 0],
             [128, 64, 0], [0, 192, 0], [128, 192, 0], [0, 64, 128]]
 
+def drive_palette():
+    """Pascal VOC palette for external use."""
+    return [[250, 250, 250],[120, 120, 120], [180, 20, 120], [6, 230, 230], [80, 150, 50],
+    [128, 64, 128], [244, 35, 232], [70, 70, 70], [102, 102, 156],
+    [6, 51, 255], [235, 12, 255], [160, 150, 20], [0, 163, 255], [119, 11, 32] , [110, 11, 255]]
+
 
 dataset_aliases = {
     'cityscapes': ['cityscapes'],
     'ade': ['ade', 'ade20k'],
-    'voc': ['voc', 'pascal_voc', 'voc12', 'voc12aug']
+    'voc': ['voc', 'pascal_voc', 'voc12', 'voc12aug'],
+    'drive': ['drive']
 }
 
 

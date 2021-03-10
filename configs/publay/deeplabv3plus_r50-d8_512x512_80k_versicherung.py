@@ -99,7 +99,7 @@ resume_from= None
 load_from  = '/netscratch/minouei/versicherung/work_dirs/deeplabv3plus_r50-d8_704_b_80k_versicherung2/iter_8000.pth'
 workflow = [('train', 1)]
 cudnn_benchmark = True
-optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
+optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0005)
 optimizer_config = dict()
 lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
 runner = dict(type='IterBasedRunner', max_iters=80000)
