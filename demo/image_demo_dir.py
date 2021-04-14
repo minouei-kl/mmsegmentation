@@ -27,7 +27,7 @@ def main():
             full_name = os.path.join(args.img, im_name)
             result = inference_segmentor(model, full_name)
             # show the results
-            pl=[[220, 220, 220],[17, 142, 35], [152, 251, 152], [0, 60, 100], [70, 130, 180], [220, 20, 60]]
+            pl=[[220, 220, 220],[17, 142, 35], [152, 251, 152], [0, 60, 100], [70, 130, 180], [220, 20, 20]]
             show_result_pyplot(model, full_name, result,pl)
 
 

@@ -14,13 +14,13 @@ class HRFDataset(CustomDataset):
     '.png'.
     """
 
-    CLASSES = ('background', 'vessel')
+    CLASSES = ('background', 'row','col')
 
-    PALETTE = [[120, 120, 120], [6, 230, 230]]
+    PALETTE = [[120, 120, 120], [6, 230, 230], [216, 30, 20]]
 
     def __init__(self, **kwargs):
         super(HRFDataset, self).__init__(
-            img_suffix='.png',
+            img_suffix='.jpg',
             seg_map_suffix='.png',
             reduce_zero_label=False,
             **kwargs)
