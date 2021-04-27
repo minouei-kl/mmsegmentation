@@ -14,13 +14,16 @@ class DRIVEDataset(CustomDataset):
     '_manual1.png'.
     """
 
+    # CLASSES = ('background',"headerLogo", "recieverAddress", "text", "senderAddress", "ortDatum", "companyInfo", "postBarcode",
+    #         "signatureImage", "copyLogo", "footerLogo","footerText","list","twoColTable","multiColTable",
+    #         "fullTableTyp1")
     CLASSES = ('background',"headerLogo", "recieverAddress", "text", "senderAddress", "ortDatum", "companyInfo", "postBarcode",
-            "signatureImage", "copyLogo", "footerLogo","footerText","list","twoColTable","multiColTable",
-            "fullTableTyp1")
+            "signatureImage", "copyLogo", "footerLogo","footerText","twoColTable","multiColTable",
+            "fullTableTyp1", "fullTableTyp2","fullTableTyp3","fullTableTyp4","fullTableTyp5" )
 
-    PALETTE = [[250, 250, 250],[120, 120, 120], [180, 20, 120], [6, 230, 230], [80, 150, 50],
-    [128, 64, 128], [244, 35, 232], [70, 70, 70], [102, 102, 156],
-    [6, 51, 255], [235, 12, 255], [160, 150, 20], [0, 163, 255], [119, 11, 32] , [110, 11, 255], [222, 150, 50]]
+    # PALETTE = [[250, 250, 250],[120, 120, 120], [180, 20, 120], [6, 230, 230], [80, 150, 50],
+    # [128, 64, 128], [244, 35, 232], [70, 70, 70], [102, 102, 156],
+    # [6, 51, 255], [235, 12, 255], [160, 150, 20], [0, 163, 255], [119, 11, 32] , [110, 11, 255], [222, 150, 50]]
 
     def __init__(self, **kwargs):
         super(DRIVEDataset, self).__init__(
