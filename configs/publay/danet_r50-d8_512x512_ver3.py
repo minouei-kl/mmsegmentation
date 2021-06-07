@@ -20,11 +20,11 @@ model = dict(
         channels=128,
         pam_channels=16,
         dropout_ratio=0.1,
-        num_classes=16,
+        num_classes=20,
         norm_cfg=dict(type='SyncBN', requires_grad=True),
         align_corners=False,
         loss_decode=dict(
-            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0)),
+            type='FocalLoss', use_sigmoid=True, gamma=2.0, alpha=0.25, loss_weight=1.0)),
     auxiliary_head=dict(
         type='FCNHead',
         in_channels=256,
@@ -33,7 +33,7 @@ model = dict(
         num_convs=1,
         concat_input=False,
         dropout_ratio=0.1,
-        num_classes=16,
+        num_classes=20,
         norm_cfg=dict(type='SyncBN', requires_grad=True),
         align_corners=False,
         loss_decode=dict(
@@ -73,18 +73,18 @@ data = dict(
     workers_per_gpu=8,
     train=dict(
         type='DRIVEDataset',
-        img_dir='/netscratch/minouei/versicherung/version3/images/train',
-        ann_dir='/netscratch/minouei/versicherung/version3/annotations/train',
+        img_dir='/netscratch/minouei/versicherung/version5/images/train',
+        ann_dir='/netscratch/minouei/versicherung/version5/box/train',
         pipeline=train_pipeline),
     val=dict(
         type='DRIVEDataset',
-        img_dir='/netscratch/minouei/versicherung/version3/images/val',
-        ann_dir='/netscratch/minouei/versicherung/version3/annotations/val',
+        img_dir='/netscratch/minouei/versicherung/version5/images/val',
+        ann_dir='/netscratch/minouei/versicherung/version5/box/val',
         pipeline=test_pipeline),
     test=dict(
         type='DRIVEDataset',
-        img_dir='/netscratch/minouei/versicherung/version3/images/val',
-        ann_dir='/netscratch/minouei/versicherung/version3/annotations/val',
+        img_dir='/netscratch/minouei/versicherung/version5/images/val',
+        ann_dir='/netscratch/minouei/versicherung/version5/box/val',
         pipeline=test_pipeline))
 
 log_config = dict(
@@ -99,7 +99,7 @@ optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
 optimizer_config = dict()
 lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
 runner = dict(type='IterBasedRunner', max_iters=80000)
-checkpoint_config = dict(by_epoch=False, interval=8000)
+checkpoint_config = dict(by_epoch=False, interval=2000)
 evaluation = dict(interval=8000, metric='mIoU')
-work_dir = '/netscratch/minouei/versicherung/work_dirs/danet_r18-d8_704x704_80k_ver3'
+work_dir = '/netscratch/minouei/versicherung/work_dirs/danet_r18-d8_704x704_80k_ver5'
 gpu_ids = range(0, 1)
