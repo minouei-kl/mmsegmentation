@@ -24,7 +24,7 @@ model = dict(
         norm_cfg=dict(type='SyncBN', requires_grad=True),
         align_corners=False,
         loss_decode=dict(
-            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0)),
+            type='FocalLoss', use_sigmoid=True, gamma=2.0, alpha=0.25, loss_weight=1.0)),
     auxiliary_head=dict(
         type='FCNHead',
         in_channels=1024,
