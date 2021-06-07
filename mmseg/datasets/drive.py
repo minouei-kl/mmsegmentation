@@ -19,7 +19,7 @@ class DRIVEDataset(CustomDataset):
     #         "fullTableTyp1")
     CLASSES = ('background',"headerLogo", "recieverAddress", "text", "senderAddress", "ortDatum", "companyInfo", "postBarcode",
             "signatureImage", "copyLogo", "footerLogo","footerText","twoColTable","multiColTable",
-            "fullTableTyp1", "fullTableTyp2","fullTableTyp3","fullTableTyp4","fullTableTyp5" )
+            "fullTableTyp1", "fullTableTyp2","fullTableTyp3","fullTableTyp4","fullTableTyp5",'center' )
 
     # PALETTE = [[250, 250, 250],[120, 120, 120], [180, 20, 120], [6, 230, 230], [80, 150, 50],
     # [128, 64, 128], [244, 35, 232], [70, 70, 70], [102, 102, 156],
