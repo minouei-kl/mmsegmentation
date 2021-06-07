@@ -45,7 +45,7 @@ model = dict(
         loss_decode=dict(
             type='CrossEntropyLoss', use_sigmoid=False, loss_weight=0.4)),
     train_cfg=dict(),
-    test_cfg=dict())
+    test_cfg=dict(mode='whole'))
 dataset_type = 'DRIVEDataset'
 data_root = 'data/DRIVE'
 img_norm_cfg = dict(
