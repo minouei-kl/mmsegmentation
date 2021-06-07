@@ -16,7 +16,7 @@ model = dict(
         with_cp=False,
         conv_cfg=None,
         norm_cfg=dict(type='SyncBN', requires_grad=True),
-        act_cfg=dict(type='ReLU'),
+        act_cfg=dict(type='PReLU'),
         upsample_cfg=dict(type='InterpConv'),
         norm_eval=False),
     decode_head=dict(
@@ -30,7 +30,7 @@ model = dict(
         norm_cfg=dict(type='SyncBN', requires_grad=True),
         align_corners=False,
         loss_decode=dict(
-            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0)),
+            type='FocalLoss', use_sigmoid=True, gamma=2.0, alpha=0.25, loss_weight=1.0)),
     auxiliary_head=dict(
         type='FCNHead',
         in_channels=128,
@@ -45,7 +45,7 @@ model = dict(
         loss_decode=dict(
             type='CrossEntropyLoss', use_sigmoid=False, loss_weight=0.4)),
     train_cfg=dict(),
-    test_cfg=dict(mode='slide', crop_size=(64, 64), stride=(42, 42)))
+    test_cfg=dict())
 dataset_type = 'DRIVEDataset'
 data_root = 'data/DRIVE'
 img_norm_cfg = dict(
@@ -115,7 +115,7 @@ optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
 optimizer_config = dict()
 lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
 runner = dict(type='IterBasedRunner', max_iters=40000)
-checkpoint_config = dict(by_epoch=False, interval=4000)
+checkpoint_config = dict(by_epoch=False, interval=2000)
 evaluation = dict(interval=4000, metric='mDice')
 work_dir = '/netscratch/minouei/versicherung/work_dirs/deeplabv3_unet_s5-d16_64x64_40k_drive'
 gpu_ids = range(0, 1)
